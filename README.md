@@ -10,6 +10,8 @@ If you are looking for something more fancy, feature complete and stable, you co
 
 I did not put this to a repo like clojars yet, so for the moment you have to start with a ```lein install```.
 
+Then use [slides2-lein-template](https://github.com/stammi/slides2-lein-template/) to create a sceleton presentation. See README over there.
+
 ## License
 
 Copyright © 2014 Christian Stamm
