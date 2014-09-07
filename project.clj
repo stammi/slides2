@@ -1,4 +1,4 @@
-(defproject slides2 "0.1.0"
+(defproject slides2 "0.1.1"
   :description "Library, that allows to create a slide based presentation in the browser."
   :url "https://github.com/stammi/slides2"
   :license {:name "Eclipse Public License"

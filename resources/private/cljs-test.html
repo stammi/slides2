@@ -1,6 +1,109 @@
 <html>
-  <body>
-    dummy HTML file
+  <head>
+      <title>dummy HTML file</title>
       <script src="./gen/cljs-test.js" type="text/javascript"></script>
-  </body>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+      <style>
+          body {
+              background:Chartreuse;
+              font-family:Verdana, Geneva, sans-serif;
+          }
+          .inner {
+              background:HoneyDew;
+              font-size:10px
+          }
+          .slide {
+              background:DimGray;
+          }
+      </style>
+  </head>
+
+  <!-- blog.sathomas.me/post/zooming-html-content-with-css-scale-transform -->
+
+  <body >
+      <h1>no scaling applied</h1>
+      <div
+           style="width:200px;height:200px;"
+           class="slide">
+          <div id="unscaled-content"
+               style="width:100px;height:100px;"
+               class="inner center">
+              <p>10px unscaled</p>
+              <p>"Leiningen!" he shouted. "You're insane! They're not creatures
+                  you can fight--they're an elemental--an 'act of God!'
+                  Ten miles long, two miles wide--ants, nothing but ants!"</p>
+          </div>
+      </div>
+
+      <h1>scaling down an svg</h1>
+      <div id="svg-container"
+           style="width:200px;height:300px;"
+           class="slide">
+          <div class="inner-wrapper center">
+              <object data="./svg/000_dark.svg" class="inner center"></object>
+          </div>
+      </div>
+
+      <h1>scaled down to fit sqare because of content overflow</h1>
+      <div id="sqare-container"
+           style="width:200px;height:200px;"
+           class="slide">
+          <div class=" center inner-wrapper">
+              <div style=""
+                   class="center inner">
+                  <p>10px scaled</p>
+                  <p>"Leiningen!" he shouted. "You're insane! They're not creatures             you can fight--they're an elemental--an 'act of God!'
+                      Ten miles long, two miles wide--ants, nothing but ants!
+                      And every single one of them a fiend from hell; before you can
+                      spit three times they'll eat a full-grown buffalo to the bones.
+                      I tell you if you don't clear out at once there'll he nothing
+                      left of you but a skeleton picked as clean as your own plantation.
+                      I tell you if you don't clear out at once there'll he nothing
+                      left of you but a skeleton picked as clean as your own plantation."</p>
+                  <p>I tell you if you don't clear out at once there'll he nothing
+                      left of you but a skeleton picked as clean as your own plantation.</p>
+              </div>
+          </div>
+      </div>
+
+      <h1>scaled down to fit sqare because of fixed size</h1>
+      <div id="sqare-container-2"
+           style="width:200px;height:200px;"
+           class="slide">
+          <div class="center inner-wrapper">
+              <div style="width:250px;height:200px;"
+                   class="center inner">
+                  <p>10px scaled</p>
+
+              </div>
+          </div>
+      </div>
+
+
+      <h1>scaled up to fit landscape</h1>
+      <div id="landscape-container"
+           style="width:300px;height:200px;"
+           class="slide">
+          <div class="inner-wrapper">
+              <div style="width:100px;height:100px;"
+                   class="center inner">
+                  <p>10px scaled</p>
+              </div>
+          </div>
+      </div>
+
+      <h1>scaled up to fit portrait</h1>
+      <div id="portrait-container"
+           style="width:200px;height:300px;"
+           class="slide">
+          <div class="inner-wrapper">
+              <div style="width:100px;height:100px;"
+                   class="center inner">
+                  <p>10px scaled</p>
+              </div>
+          </div>
+      </div>
+
+
+    </body>
 </html>

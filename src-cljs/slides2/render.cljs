@@ -1,7 +1,6 @@
 (ns slides2.render
-  "This namespace defines the slide protocol,
-  which is use to render presentation slides as
-  hiccup/dommy compatible html representation.")
+  "The slide protocol is used to render slides
+  in hiccup/dommy compatible html representation.")
 
 (defprotocol Slide (render [this]))
 

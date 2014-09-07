@@ -1,11 +1,11 @@
 (ns slides2.statemachine
   "A statemachine that creates and animates an in-browser html presentation."
   (:require
-   [slides2.render :as s]
-   [dommy.core :as dommy]
-   [dommy.utils :as utils])
+   [slides2.scale :as scale]
+   [dommy.core :as dommy])
   (:use-macros
-    [dommy.macros :only [node sel1]]))
+    [dommy.macros :only [sel1]]))
+
 (def state (atom {}))
 
 ;; control
@@ -35,23 +35,23 @@
       (fun!))))
 
 ;; init
-(defn idx-class [n] (str "slide-" n))
-
-(defn indexed-slide! [idx slide]
-  (swap! state #(assoc % :max idx)) ;; this is a little ugly
-  (-> (node [:div {:id (idx-class idx) :class "center"}  (s/render slide)])
-      (dommy/add-class! :hidden)))
 
 (defn init-slides! [presentation]
-  (doseq [slide (map-indexed indexed-slide! presentation)]
+  (doseq [slide (map-indexed
+                 (fn [idx slide] (swap! state #(assoc % :max idx))
+                   (scale/scalable-slide! idx slide)) presentation)]
     (dommy/append! (sel1 :#presentation) slide)))
+
+(defn- idx-class [n] (str "slide-" n))
 
 (defn sel-by-idx [n] (sel1 (str "#" (idx-class n))))
 
 (defn idx-sel [n] (str "#" (idx-class n)))
 
 (defn switch! [old new]
+  (.log js/console (str "old: " old ", new: " new))
   (dommy/remove-class! (sel-by-idx (:cursor new)) :hidden)
+  (scale/scale-to-fit! (str "#"(idx-class (:cursor new))))
   (dommy/add-class! (sel-by-idx (:cursor old)) :hidden))
 
 (defn init! [presentation]
