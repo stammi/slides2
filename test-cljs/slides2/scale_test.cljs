@@ -13,11 +13,6 @@
         (scale/scale-to-fit! "#landscape-container")
         (scale/scale-to-fit! "#portrait-container")))
 
-(expect [:div {:class "slide-7"}
-         [:div {:class ["center" "inner-wrapper"]}
-          [:div {:class ["center" "inner"]} "foo"]]]
-
-         (scale/wrap 7 [:div "foo"]))
 
 (defn run []
   )

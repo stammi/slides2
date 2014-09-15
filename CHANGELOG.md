@@ -1,3 +1,5 @@
+- logitech r400 supported
+
 # 0.1.1
 - slides are scaled to fit screen. Works only in firefox.
 

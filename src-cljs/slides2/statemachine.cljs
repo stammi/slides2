@@ -26,7 +26,9 @@
 (defn back! [] (swap! state back))
 
 (def key-map {37 back!
-              39 advance!})
+              39 advance!
+              34 advance!
+              33 back!})
 
 (defn key-event! [event]
   (let [code (.-which event)]
